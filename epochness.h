@@ -13,11 +13,11 @@
 
 #ifdef _WIN32
 
-	// type for keeping track of ticks
-	typedef unsigned long long epoch_int;
-
 	// for time functions:
 	#include "windows.h"
+
+  // type for keeping track of ticks
+	typedef unsigned long long epoch_int;
 
 	// struct for epoch:
 	typedef struct
@@ -28,13 +28,20 @@
 /////////////////////////////////////////////////////////////////
 
 #else
-	#include "time.h"
-	// TODO: WRITE LINUX IMPLEMENTATION HERE
+
+	#include <time.h>
+	#include <sys/time.h>
+
+  typedef struct timespec timespec;
+
+  typedef struct
+  {
+    timespec last, now;
+  } Epoch_t;
 
 /////////////////////////////////////////////////////////////////
 
 #endif
-
 
 bool Epoch_Init();
 void Epoch_Start(Epoch_t* e);
