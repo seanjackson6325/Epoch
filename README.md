@@ -21,6 +21,8 @@ The Epoch_t struct essentially works as a timer.
 Information about the elapsed time can be accessed.
 Below is a program that will count to 10 seconds:
 
+
+
 #include <stdio.h>
 #include "epochness.h"
 
