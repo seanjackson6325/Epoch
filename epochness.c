@@ -40,6 +40,28 @@ double Epoch_QueryChange(Epoch_t* e)
 	return (double)change / epoch_query_frequency;
 }
 
+void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
+{
+	SYSTEMTIME systime;
+	switch (type)
+	{
+	case EPOCH_LOCAL_TIME: GetLocalTime(&systime); break;
+	case EPOCH_UTC_TIME: GetSystemTime(&systime); break;
+	}
+
+	*t = (Epoch_SysTime_t)
+	{
+		systime.wYear,
+		systime.wMonth,
+		systime.wDayOfWeek,
+		systime.wDay,
+		systime.wHour,
+		systime.wMinute,
+		systime.wSecond,
+		systime.wMilliseconds,
+	};
+}
+
 /////////////////////////////////////////////////////////////////
 
 #else
