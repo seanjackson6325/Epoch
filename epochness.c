@@ -1,7 +1,7 @@
 /****************************************************************
 *
 * Author: Sean Jackson
-* Last Modified: 09/05/21
+* Last Modified: 06/29/22
 * Description: Header for "Epochness" cross-platform time lib
 *
 ****************************************************************/
