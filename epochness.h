@@ -11,6 +11,11 @@
 
 /////////////////////////////////////////////////////////////////
 
+#define EPOCH_LOCAL_TIME 0
+#define EPOCH_UTC_TIME 1
+
+/////////////////////////////////////////////////////////////////
+
 #ifdef _WIN32
 
 // for time functions:
@@ -23,6 +28,7 @@ typedef unsigned long long epoch_int;
 typedef struct
 {
 	epoch_int last, now;
+	SYSTEMTIME systime;
 } Epoch_t;
 
 /////////////////////////////////////////////////////////////////
@@ -45,11 +51,32 @@ typedef struct
 
 #endif
 
+/*
+* struct that holds basic date and time information
+* from operating system
+*/
+typedef struct
+{
+	unsigned short year;
+	unsigned short month;
+	unsigned short weekday;
+	unsigned short day;
+	unsigned short hour;
+	unsigned short minute;
+	unsigned short second;
+	unsigned short millisec;
+} Epoch_SysTime_t;
+
+/////////////////////////////////////////////////////////////////
+
 // initialize epochness
 bool Epoch_Init();
 // start an epoch timer
 void Epoch_Start(Epoch_t* e);
 // return time (seconds) since start
 double Epoch_QueryChange(Epoch_t* e);
+// return system date and time information
+// for type, use either EPOCH_LOCAL_TIME or EPOCH_UTC_TIME
+void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type);
 
 /////////////////////////////////////////////////////////////////
