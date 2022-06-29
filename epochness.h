@@ -1,7 +1,7 @@
 /****************************************************************
 *
 * Author: Sean Jackson
-* Last Modified: 09/05/21
+* Last Modified: 06/29/22
 * Description: Header for "Epochness" cross-platform time lib
 *
 ****************************************************************/
@@ -16,7 +16,7 @@
 	// for time functions:
 	#include "windows.h"
 
-  // type for keeping track of ticks
+  	// type for keeping track of ticks
 	typedef unsigned long long epoch_int;
 
 	// struct for epoch:
@@ -29,8 +29,8 @@
 
 #else
 
-	#include <time.h>
-	#include <sys/time.h>
+#include <time.h>
+#include <sys/time.h>
 
   typedef struct timespec timespec;
 
