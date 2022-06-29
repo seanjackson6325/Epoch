@@ -1,0 +1,43 @@
+Author: Sean Jackson
+Last Edited: 04/14/22
+
+The Epochness library is intended for use in applications where high precision time measurements are needed.
+
+The library works in time "ticks", where 1 tick is less than 1 microsecond
+
+The frequency of these ticks is constant and is stored in the library, so tick values can be converted into second values
+
+Here is a code example that will make a timer run for 10 seconds:
+
+int main(int argc, char** argv)
+{
+	// initialize library
+	Epoch_Init();
+
+	// new clock
+	Epoch_t clock;
+	// start clock
+	Epoch_Start(&clock);
+
+	// # of seconds that have passed
+	int seconds = 0;
+	// change in ticks
+	epoch_int d_ticks = 0;
+
+	while (seconds < 10)
+	{
+		// get # of ticks since last time we checked
+		d_ticks += Epoch_QueryChange(&clock);
+
+		if (d_ticks >= Epoch_TicksPerSecond())
+		{
+			d_ticks -= Epoch_TicksPerSecond();
+			seconds++;
+			printf("%d\n", seconds);
+		}
+	}
+
+	printf("Done!\n");
+
+	return 0;
+}
