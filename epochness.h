@@ -11,10 +11,10 @@
 
 /////////////////////////////////////////////////////////////////
 
-// type for keeping track of ticks
-typedef unsigned long long epoch_int;
+#ifdef _WIN32
 
-#ifdef WIN32
+	// type for keeping track of ticks
+	typedef unsigned long long epoch_int;
 
 	// for time functions:
 	#include "windows.h"
@@ -38,7 +38,4 @@ typedef unsigned long long epoch_int;
 
 bool Epoch_Init();
 void Epoch_Start(Epoch_t* e);
-epoch_int Epoch_QueryChange(Epoch_t* e);
-epoch_int Epoch_TicksPerSecond();
-double Epoch_TicksToSeconds(epoch_int ticks);
-void Epoch_GameLoop(bool* run, const int UPS, void(update)(void), void(render)(void), char* report_buff);
+double Epoch_QueryChange(Epoch_t* e);
