@@ -21,28 +21,28 @@ The Epoch_t struct essentially works as a timer.
 Information about the elapsed time can be accessed.
 Below is a program that will count to 10 seconds:
 
-  #include <stdio.h>
-  #include "epochness.h"
+#include <stdio.h>
+#include "epochness.h"
 
-  int main(void)
-  {
-    // initialize library
-	  Epoch_Init();
+int main(void)
+{
+	// initialize library
+	Epoch_Init();
 
-    // new Epoch_t clock
-	  Epoch_t clock;
-    // start counting
-	  Epoch_Start(&clock);
+	// new clock
+	Epoch_t clock;
+	// start clock
+	Epoch_Start(&clock);
 
-    // hold elapsed time in seconds
-	  double time = 0;
-    
-    // count to 10 seconds
-	  while (time < 10.0)
-	  {
-      // save elapsed time
-		  time = Epoch_QueryChange(&clock);
-      // log to console
-		  printf("%lf\n", time);
-	  }
-  }
+	// keep track of elapsed time
+	double time = 0;
+
+	// count to 10.0 seconds:
+	while (time < 10.0)
+	{
+		// get new elapsed time
+		time = Epoch_QueryChange(&clock);
+		// log time to console
+		printf("%lf\n", time);
+	}
+}
