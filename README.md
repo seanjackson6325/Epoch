@@ -23,28 +23,28 @@ Below is a program that will count to 10 seconds:
 
 
 
-#include <stdio.h>
-#include "epochness.h"
+	#include <stdio.h>
+	#include "epochness.h"
 
-int main(void)
-{
-	// initialize library
-	Epoch_Init();
-
-	// new clock
-	Epoch_t clock;
-	// start clock
-	Epoch_Start(&clock);
-
-	// keep track of elapsed time
-	double time = 0;
-
-	// count to 10.0 seconds:
-	while (time < 10.0)
+	int main(void)
 	{
-		// get new elapsed time
-		time = Epoch_QueryChange(&clock);
-		// log time to console
-		printf("%lf\n", time);
+		// initialize library
+		Epoch_Init();
+
+		// new clock
+		Epoch_t clock;
+		// start clock
+		Epoch_Start(&clock);
+
+		// keep track of elapsed time
+		double time = 0;
+
+		// count to 10.0 seconds:
+		while (time < 10.0)
+		{
+			// get new elapsed time
+			time = Epoch_QueryChange(&clock);
+			// log time to console
+			printf("%lf\n", time);
+		}
 	}
-}
