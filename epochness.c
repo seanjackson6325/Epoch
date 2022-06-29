@@ -40,30 +40,30 @@
 
 #else
 
-  bool Epoch_Init() {}
+	bool Epoch_Init() {}
 
-  void Epoch_Start(Epoch_t* e)
-  {
-    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->last);
-  }
-
-  double Epoch_QueryChange(Epoch_t* e)
+	void Epoch_Start(Epoch_t* e)
 	{
-    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->now);
-    timespec diff;
+		clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->last);
+	}
 
-    if(e->now.tv_nsec - e->last.tv_nsec < 0)
-    {
-      diff.tv_sec = e->now.tv_sec - e->last.tv_sec-1;
-      diff.tv_nsec = 1000000000 + e->now.tv_nsec - e->last.tv_nsec;
-    }
-    else
-    {
-      diff.tv_sec = e->now.tv_sec - e->last.tv_sec;
-      diff.tv_nsec = e->now.tv_nsec - e->last.tv_nsec;
-    }
+	double Epoch_QueryChange(Epoch_t* e)
+	{
+		clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->now);
+		timespec diff;
 
-    return diff.tv_sec + diff.tv_nsec / 1000000000.0;
+		if(e->now.tv_nsec - e->last.tv_nsec < 0)
+		{
+			diff.tv_sec = e->now.tv_sec - e->last.tv_sec-1;
+			diff.tv_nsec = 1000000000 + e->now.tv_nsec - e->last.tv_nsec;
+		}
+		else
+		{
+			diff.tv_sec = e->now.tv_sec - e->last.tv_sec;
+			diff.tv_nsec = e->now.tv_nsec - e->last.tv_nsec;
+		}
+
+		return diff.tv_sec + diff.tv_nsec / 1000000000.0;
 	}
 
 #endif
