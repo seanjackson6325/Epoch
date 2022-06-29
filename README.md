@@ -6,12 +6,12 @@ A high resolution, cross platform time library for C/C++
 How to use:
 
 First, the library header must be included:
-  
-   #include "epochness.h"
+
+	#include "epochness.h"
 
 Then, the library must be initialized using the following function:
 
-  Epoch_Init();
+	Epoch_Init();
 
 Now the library is ready to be used.
 
@@ -33,6 +33,7 @@ Below is a program that will count to 10 seconds:
 
 		// new clock
 		Epoch_t clock;
+		
 		// start clock
 		Epoch_Start(&clock);
 
@@ -48,3 +49,5 @@ Below is a program that will count to 10 seconds:
 			printf("%lf\n", time);
 		}
 	}
+	
+	
