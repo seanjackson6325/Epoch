@@ -29,15 +29,15 @@
 
 #else
 
-#include <time.h>
-#include <sys/time.h>
+	#include <time.h>
+	#include <sys/time.h>
 
-  typedef struct timespec timespec;
+	typedef struct timespec timespec;
 
-  typedef struct
-  {
-    timespec last, now;
-  } Epoch_t;
+	typedef struct
+	{
+		timespec last, now;
+	} Epoch_t;
 
 /////////////////////////////////////////////////////////////////
 
