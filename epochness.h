@@ -64,7 +64,6 @@ typedef struct
 	unsigned short hour;
 	unsigned short minute;
 	unsigned short second;
-	unsigned short millisec;
 } Epoch_SysTime_t;
 
 /////////////////////////////////////////////////////////////////
