@@ -58,7 +58,6 @@ void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 		systime.wHour,
 		systime.wMinute,
 		systime.wSecond,
-		systime.wMilliseconds,
 	};
 }
 
@@ -96,6 +95,25 @@ double Epoch_QueryChange(Epoch_t* e)
 	}
 
 	return diff.tv_sec + diff.tv_nsec / 1000000000.0;
+}
+
+void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
+{
+	time_t now;
+	time(&now);
+
+	struct tm* local = localtime(&now);
+
+	*t = (Epoch_SysTime_t)
+	{
+		local->tm_year,
+		local->tm_mon,
+		local->tm_wday
+		local->tm_mday,
+		local->tm_hour,
+		local->tm_min,
+		local->tm_sec,
+	};
 }
 
 /////////////////////////////////////////////////////////////////
