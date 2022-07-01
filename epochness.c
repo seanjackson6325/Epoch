@@ -20,7 +20,7 @@ epoch_int epoch_query_frequency = 0;
 // prepare the epochness library for use
 bool Epoch_Init()
 {
-	QueryPerformanceFrequency(&epoch_query_frequency);
+	return QueryPerformanceFrequency(&epoch_query_frequency);
 }
 
 // start the epoch
@@ -40,6 +40,7 @@ double Epoch_QueryChange(Epoch_t* e)
 	return (double)change / epoch_query_frequency;
 }
 
+// get system time information
 void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 {
 	SYSTEMTIME systime;
@@ -66,7 +67,7 @@ void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 #else
 
 // prepare the epochness library for use
-bool Epoch_Init() {}
+bool Epoch_Init() { return true; }
 
 // start the epoch
 void Epoch_Start(Epoch_t* e)
@@ -102,7 +103,13 @@ void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 	time_t now;
 	time(&now);
 
-	struct tm* local = localtime(&now);
+	struct tm* local;
+
+	switch (type)
+	{
+	case EPOCH_LOCAL_TIME: local = localtime(&now); break;
+	case EPOCH_UTC_TIME: local = gmtime(&now) break;
+	}
 
 	*t = (Epoch_SysTime_t)
 	{
