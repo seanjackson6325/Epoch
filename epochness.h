@@ -6,8 +6,8 @@
 *
 ****************************************************************/
 
-#pragma once
-#include <stdbool.h>
+#ifndef _EPOCHNESS_H_
+#define _EPOCHNESS_H_
 
 /////////////////////////////////////////////////////////////////
 
@@ -64,18 +64,22 @@ typedef struct
 	unsigned short hour;
 	unsigned short minute;
 	unsigned short second;
-} Epoch_SysTime_t;
+} Epoch_SysInfo_t;
 
 /////////////////////////////////////////////////////////////////
 
 // initialize epochness
-bool Epoch_Init();
+unsigned char Epoch__Init();
 // start an epoch timer
-void Epoch_Start(Epoch_t* e);
+void Epoch__Start(Epoch_t* e);
 // return time (seconds) since start
-double Epoch_QueryChange(Epoch_t* e);
+double Epoch__QueryChange(Epoch_t* e);
 // return system date and time information
 // for type, use either EPOCH_LOCAL_TIME or EPOCH_UTC_TIME
-void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type);
+void Epoch__QuerySysInfo(Epoch_SysInfo_t* t, unsigned char type);
+
+/////////////////////////////////////////////////////////////////
+
+#endif _EPOCHNESS_H_
 
 /////////////////////////////////////////////////////////////////

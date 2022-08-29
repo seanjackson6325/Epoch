@@ -18,13 +18,14 @@
 epoch_int epoch_query_frequency = 0;
 
 // prepare the epochness library for use
-bool Epoch_Init()
+// returns 0 on failure
+unsigned char Epoch__Init()
 {
 	return QueryPerformanceFrequency(&epoch_query_frequency);
 }
 
 // start the epoch
-void Epoch_Start(Epoch_t* e)
+void Epoch__Start(Epoch_t* e)
 {
 	QueryPerformanceCounter(&e->last);
 }
@@ -33,7 +34,7 @@ void Epoch_Start(Epoch_t* e)
 * Get the change in time (seconds)
 * since the timer was started
 */
-double Epoch_QueryChange(Epoch_t* e)
+double Epoch__QueryChange(Epoch_t* e)
 {
 	QueryPerformanceCounter(&e->now);
 	epoch_int change = e->now - e->last;
@@ -41,16 +42,16 @@ double Epoch_QueryChange(Epoch_t* e)
 }
 
 // get system time information
-void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
+void Epoch__QuerySysInfo(Epoch_SysInfo_t* t, unsigned char type)
 {
 	SYSTEMTIME systime;
 	switch (type)
 	{
 	case EPOCH_LOCAL_TIME: GetLocalTime(&systime); break;
-	case EPOCH_UTC_TIME: GetSystemTime(&systime); break;
+	default: GetSystemTime(&systime); break;
 	}
 
-	*t = (Epoch_SysTime_t)
+	*t = (Epoch_SysInfo_t)
 	{
 		systime.wYear,
 		systime.wMonth,
@@ -67,10 +68,11 @@ void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 #else
 
 // prepare the epochness library for use
-bool Epoch_Init() { return true; }
+// returns 0 on failure
+unsigned char Epoch__Init() { return 1; }
 
 // start the epoch
-void Epoch_Start(Epoch_t* e)
+void Epoch__Start(Epoch_t* e)
 {
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->last);
 }
@@ -79,7 +81,7 @@ void Epoch_Start(Epoch_t* e)
 * Get the change in time (seconds)
 * since the timer was started
 */
-double Epoch_QueryChange(Epoch_t* e)
+double Epoch__QueryChange(Epoch_t* e)
 {
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &e->now);
 	timespec diff;
@@ -98,7 +100,7 @@ double Epoch_QueryChange(Epoch_t* e)
 	return diff.tv_sec + diff.tv_nsec / 1000000000.0;
 }
 
-void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
+void Epoch__QuerySysInfo(Epoch_SysTime_t* t, unsigned char type)
 {
 	time_t now;
 	time(&now);
@@ -108,7 +110,7 @@ void Epoch_QuerySysTime(Epoch_SysTime_t* t, unsigned char type)
 	switch (type)
 	{
 	case EPOCH_LOCAL_TIME: local = localtime(&now); break;
-	case EPOCH_UTC_TIME: local = gmtime(&now) break;
+	default: local = gmtime(&now) break;
 	}
 
 	*t = (Epoch_SysTime_t)
