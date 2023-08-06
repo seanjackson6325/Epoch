@@ -1,6 +1,8 @@
-# Epochness
+# Epoch
 
-A high resolution, cross platform time library for C/C++
+Epoch is a high resolution, cross platform time library for C/C++.
+This library can provide time measurements of less than one microsecond (1E-6 seconds).
+
 
 
 How to use:
