@@ -7,14 +7,32 @@ as well as date and time information in local and UTC time.
 
 
 
-## Functions and data types:
+## Data types:
 
 
 ### Epoch_t
 
     Essentially acts as a timer to hold elapsed time info
+
+
+### Epoch_SysInfo_t
+
+    Holds current system time information.
+
+    typedef struct
+    {
+	unsigned short year;
+	unsigned short month;
+	unsigned short weekday;
+	unsigned short day;
+	unsigned short hour;
+	unsigned short minute;
+	unsigned short second;
+    } Epoch_SysInfo_t;
     
 
+
+## Functions
 
 ### Initialize Epoch for use:
 
