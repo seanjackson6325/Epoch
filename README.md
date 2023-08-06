@@ -7,7 +7,7 @@ as well as date and time information in local and UTC time.
 
 
 
-Functions and data types:
+## Functions and data types:
 
 
 ## Initialize epochness
