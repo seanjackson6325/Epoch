@@ -37,7 +37,7 @@ Holds current system time information.
 
 ### EPOCH_LOCAL_TIME
 
--  Used to query system time information in local time (the local time in your area).
+- Used to query system time information in local time (the local time in your area).
 
 
 ### EPOCH_UTC_TIME
