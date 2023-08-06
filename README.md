@@ -46,7 +46,7 @@ as well as date and time information in local and UTC time.
 
 ### EPOCH_UTC_TIME
 
-Used to query system time information in UTC time.
+- Used to query system time information in universal coordinated time (UTC).
 
 
 ###EPOCH_UTC_TIME
