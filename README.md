@@ -32,6 +32,22 @@ Holds current system time information.
     } Epoch_SysInfo_t;
     
 
+## Constants
+
+
+### EPOCH_LOCAL_TIME
+
+Used to query system time information in local time (the local time in your area).
+
+
+### EPOCH_UTC_TIME
+
+Used to query system time information in UTC time.
+
+
+###EPOCH_UTC_TIME
+
+
 
 ## Functions
 
@@ -42,14 +58,14 @@ Holds current system time information.
   
 ### Start a timer
 
-    void Epoch__Start(Epoch_t* e);
+    void Epoch__Start(Epoch_t*);
 
   
 ### Return float time (seconds) since start
 
-    double Epoch__QueryChange(Epoch_t* e);
+    double Epoch__QueryChange(Epoch_t*);
 
   
 ### Return system date and time information
 
-    void Epoch__QuerySysInfo(Epoch_SysInfo_t* t, unsigned char type);
+    void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
