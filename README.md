@@ -7,6 +7,7 @@ as well as date and time information in local and UTC time.
 
 
 
+
 ## Data types:
 
 
@@ -32,7 +33,10 @@ Holds current system time information.
     } Epoch_SysInfo_t;
     
 
+
+
 ## Constants:
+
 
 
 ### EPOCH_LOCAL_TIME
