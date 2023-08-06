@@ -10,7 +10,9 @@ Functions and data types:
 
 Initialize epochness
 
+
     unsigned char Epoch__Init();
+
   
 Start an epoch timer
   void Epoch__Start(Epoch_t* e);
