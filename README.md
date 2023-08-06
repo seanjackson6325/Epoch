@@ -18,10 +18,12 @@ as well as date and time information in local and UTC time.
 ### Start a timer
 
     void Epoch__Start(Epoch_t* e);
+
   
 ### Return float time (seconds) since start
 
     double Epoch__QueryChange(Epoch_t* e);
+
   
 ### Return system date and time information
 
