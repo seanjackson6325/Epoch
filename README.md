@@ -23,13 +23,13 @@ as well as date and time information in local and UTC time.
 
 	    typedef struct
 	    {
-		unsigned short year;
-		unsigned short month;
-		unsigned short weekday;
-		unsigned short day;
-		unsigned short hour;
-		unsigned short minute;
-		unsigned short second;
+		unsigned short year;      // current year
+		unsigned short month;     // current month (0-11)
+		unsigned short weekday;   // current weekday (0-6)
+		unsigned short day;       // current day (0-364)
+		unsigned short hour;      // current hour (0-23)
+		unsigned short minute;    // current minute (0-59)
+		unsigned short second;    // current second (0-59)
 	    } Epoch_SysInfo_t;
     
 
