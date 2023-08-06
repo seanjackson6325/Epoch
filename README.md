@@ -11,13 +11,11 @@ as well as date and time information in local and UTC time.
 
 
 ### Initialize epochness
-
-
     unsigned char Epoch__Init();
 
   
-Start an epoch timer
-  void Epoch__Start(Epoch_t* e);
+### Start an epoch timer
+      void Epoch__Start(Epoch_t* e);
   
 Return float time (seconds) since start
   double Epoch__QueryChange(Epoch_t* e);
