@@ -21,16 +21,16 @@ as well as date and time information in local and UTC time.
 
 - Holds current system time information.
 
-    typedef struct
-    {
-	unsigned short year;
-	unsigned short month;
-	unsigned short weekday;
-	unsigned short day;
-	unsigned short hour;
-	unsigned short minute;
-	unsigned short second;
-    } Epoch_SysInfo_t;
+	    typedef struct
+	    {
+		unsigned short year;
+		unsigned short month;
+		unsigned short weekday;
+		unsigned short day;
+		unsigned short hour;
+		unsigned short minute;
+		unsigned short second;
+	    } Epoch_SysInfo_t;
     
 
 
