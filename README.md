@@ -13,12 +13,12 @@ as well as date and time information in local and UTC time.
 
 ### Epoch_t
 
-    Essentially acts as a timer to hold elapsed time info
+Essentially acts as a timer to hold elapsed time info
 
 
 ### Epoch_SysInfo_t
 
-    Holds current system time information.
+Holds current system time information.
 
     typedef struct
     {
