@@ -38,12 +38,12 @@ as well as date and time information in local and UTC time.
 ## Constants:
 
 
-### EPOCH_LOCAL_TIME
+#### EPOCH_LOCAL_TIME
 
 - Used to query system time information in local time (the local time in your area).
 
 
-### EPOCH_UTC_TIME
+#### EPOCH_UTC_TIME
 
 - Used to query system time information in universal coordinated time (UTC).
 
@@ -53,17 +53,17 @@ as well as date and time information in local and UTC time.
 ## Functions:
 
 
-### unsigned char Epoch__Init();
+#### unsigned char Epoch__Init();
 - Intializes internal variables for use. Needs to be called only once at the start of the program.
 
   
-### void Epoch__Start(Epoch_t*);
+#### void Epoch__Start(Epoch_t*);
 - Initializes an Epoch_t and resets it's elapsed time. This must be called to start an Epoch_t before it's elapsed time is ever queried.
 
 
-### double Epoch__QueryChange(Epoch_t*);
+#### double Epoch__QueryChange(Epoch_t*);
 - Gets the elapsed time from an Epoch_t.
 
   
-### void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
+#### void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
 - Fill a Epoch_SysInfo_t with system time information. "type" should be either EPOCH_LOCAL_TIME or EPOCH_UTC_TIME.
