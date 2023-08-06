@@ -120,10 +120,10 @@ as well as date and time information in local and UTC time.
 	
 	    // Print some info
 	    printf("Current Year: %d\n", info.year);
-	    printf("Current Month (0-11): %d\n", info.month);
-	    printf("Current Weekday (0-6): %d\n", info.weekday);
-	    printf("Current Day (0-355): %d\n", info.day);
-	    printf("Current Hour (0-23): %d\n", info.hour);
-	    printf("Current Minute (0-59): %d\n", info.minute);
-	    printf("Current Second (0-60): %d\n", info.second);
+	    printf("Current Month: %d\n", info.month);
+	    printf("Current Weekday: %d\n", info.weekday);
+	    printf("Current Day: %d\n", info.day);
+	    printf("Current Hour: %d\n", info.hour);
+	    printf("Current Minute: %d\n", info.minute);
+	    printf("Current Second: %d\n", info.second);
 	}
