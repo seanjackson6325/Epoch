@@ -12,7 +12,7 @@ as well as date and time information in local and UTC time.
 
 ## Initialize epochness
 
-'''C
+'''c
 unsigned char Epoch__Init();
 '''
   
