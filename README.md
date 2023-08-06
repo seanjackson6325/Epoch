@@ -21,8 +21,8 @@ as well as date and time information in local and UTC time.
   
 ### Return float time (seconds) since start
 
-      double Epoch__QueryChange(Epoch_t* e);
+    double Epoch__QueryChange(Epoch_t* e);
   
 ### Return system date and time information
 
-      void Epoch__QuerySysInfo(Epoch_SysInfo_t* t, unsigned char type);
+    void Epoch__QuerySysInfo(Epoch_SysInfo_t* t, unsigned char type);
