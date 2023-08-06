@@ -11,7 +11,8 @@ as well as date and time information in local and UTC time.
 
 
 ### Epoch_t
-Essentially acts s a timer.
+
+    Essentially acts as a timer to hold elapsed time info.
 
 
 ### Initialize Epoch for use:
