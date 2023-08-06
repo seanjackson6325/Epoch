@@ -52,21 +52,14 @@ as well as date and time information in local and UTC time.
 
 ## Functions:
 
-### Initialize Epoch for use:
 
-    unsigned char Epoch__Init();
-
-  
-### Start a timer
-
-    void Epoch__Start(Epoch_t*);
+### unsigned char Epoch__Init();
 
   
-### Return float time (seconds) since start
+### void Epoch__Start(Epoch_t*);
 
-    double Epoch__QueryChange(Epoch_t*);
+
+### double Epoch__QueryChange(Epoch_t*);
 
   
-### Return system date and time information
-
-    void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
+### void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
