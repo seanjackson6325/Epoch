@@ -32,7 +32,7 @@ Holds current system time information.
     } Epoch_SysInfo_t;
     
 
-## Constants
+## Constants:
 
 
 ### EPOCH_LOCAL_TIME
@@ -49,7 +49,7 @@ Used to query system time information in UTC time.
 
 
 
-## Functions
+## Functions:
 
 ### Initialize Epoch for use:
 
