@@ -100,19 +100,4 @@ as well as date and time information in local and UTC time.
 	        printf("%f\n", elapsed);
 	    }
 	    while (elapsed < 5.0);
-	
-	    // Used to hold system information
-	    Epoch_SysInfo_t info;
-	
-	    // Get current system information (local time)
-	    Epoch__QuerySysInfo(&info, EPOCH_LOCAL_TIME);
-	
-	    // Print some info
-	    printf("Current Year: %d\n", info.year);
-	    printf("Current Month (0-11): %d\n", info.month);
-	    printf("Current Weekday (0-6): %d\n", info.weekday);
-	    printf("Current Day (0-355): %d\n", info.day);
-	    printf("Current Hour (0-23): %d\n", info.hour);
-	    printf("Current Minute (0-59): %d\n", info.minute);
-	    printf("Current Second (0-60): %d\n", info.second);
 	}
