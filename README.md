@@ -54,12 +54,16 @@ as well as date and time information in local and UTC time.
 
 
 ### unsigned char Epoch__Init();
+- Intializes internal variables for use. Needs to be called only once at the start of the program.
 
   
 ### void Epoch__Start(Epoch_t*);
+- Initializes an Epoch_t and resets it's elapsed time. This must be called to start an Epoch_t before it's elapsed time is ever queried.
 
 
 ### double Epoch__QueryChange(Epoch_t*);
+- Gets the elapsed time from an Epoch_t.
 
   
 ### void Epoch__QuerySysInfo(Epoch_SysInfo_t*, unsigned char type);
+- Fill a Epoch_SysInfo_t with system time information. "type" should be either EPOCH_LOCAL_TIME or EPOCH_UTC_TIME.
