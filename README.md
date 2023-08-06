@@ -7,7 +7,7 @@ as well as date and time information in local and UTC time.
 
 Functions and data types:
 
-  // initialize epochness
+initialize epochness
   unsigned char Epoch__Init();
   
   // start an epoch timer
