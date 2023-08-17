@@ -40,7 +40,7 @@ See examples at the end to see the proper usage of functions and what header fil
 
 #### EPOCH_LOCAL_TIME
 
-- Used to query system time information in local time (the local time in your area).
+- Used to query system time information in local time (the time on your machine).
 
 
 #### EPOCH_UTC_TIME
